@@ -33,6 +33,32 @@ public class SimpleJDBCRunnner {
                         System.out.println(list);
                     else
                         System.out.println("Not Found");
+
+                    ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+                    System.out.println("Count of coloumn from table Employees = "+resultSetMetaData.getColumnCount());
+                    System.out.println("getCatalogName represent database name = "+resultSetMetaData.getCatalogName(1));
+                    System.out.println("getColumnName = "+resultSetMetaData.getColumnName(2));
+                    System.out.println("getColumnType = "+resultSetMetaData.getColumnType(2));
+                    System.out.println("getColumnClassName = "+resultSetMetaData.getColumnClassName(2));
+                    System.out.println("getColumnLabel = "+resultSetMetaData.getColumnLabel(2));
+                    System.out.println("getColumnTypeName = "+resultSetMetaData.getColumnTypeName(2));
+                    System.out.println("getSchemaName = "+resultSetMetaData.getSchemaName(2));
+                    System.out.println("getTableName = "+resultSetMetaData.getTableName(2));
+                    System.out.println("getColumnDisplaySize = "+resultSetMetaData.getColumnDisplaySize(2));
+                    System.out.println("getScale = "+resultSetMetaData.getScale(2));
+
+                    DatabaseMetaData databaseMetaData = connection.getMetaData();
+                    System.out.println("===============databaseMetaData================");
+                    System.out.println("getURL = "+databaseMetaData.getURL());
+                    System.out.println("getCatalogSeparator = "+databaseMetaData.getCatalogSeparator());
+                    System.out.println("getCatalogTerm = "+databaseMetaData.getCatalogTerm());
+                    System.out.println("getDatabaseProductName = "+databaseMetaData.getDatabaseProductName());
+                    System.out.println("getDatabaseProductVersion = "+databaseMetaData.getDatabaseProductVersion());
+                    System.out.println("getDriverName = "+databaseMetaData.getDriverName());
+                    System.out.println("getDriverVersion = "+databaseMetaData.getDriverVersion());
+                    System.out.println("getUserName ="+databaseMetaData.getUserName());
+
+
                 } finally {
                     if (resultSet !=null){
                         resultSet.close();
